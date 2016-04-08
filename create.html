@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Dashboard">
+    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+
+    <title>Create Account</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <!--external css-->
+    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+        
+    <!-- Custom styles for this template -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/style-responsive.css" rel="stylesheet">
+    <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <section id="container" >
+        
+      <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+      <!--main content start-->
+      <section style='margin-left: 10%; margin-right: 10%'>
+        <section class="wrapper site-min-height">
+        	<h1>Create New Account</h1>
+        	<div class="row">
+        		<div class="col-lg-12 create">
+        		  <div class="form-panel">
+                <form class="form-horizontal tasi-form mt" method="get">
+                  <div class="form-group">
+                      <label class="col-sm-2 col-sm-2 control-label">First Name</label>
+                      <div class="col-sm-4">
+                          <input id="first" type="text" class="form-control">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="col-sm-2 col-sm-2 control-label">Last Name</label>
+                      <div class="col-sm-4">
+                          <input id="last" type="text" class="form-control">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="col-sm-2 col-sm-2 control-label">Phone Number</label>
+                      <div class="col-sm-4">
+                          <input id="phone" type="text" class="form-control">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="col-sm-2 col-sm-2 control-label">E-mail</label>
+                      <div class="col-sm-4">
+                          <input id="email" type="text" class="form-control">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="col-sm-2 col-sm-2 control-label">Address</label>
+                      <div class="col-sm-4">
+                          <input id="address" type="text" class="form-control">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="col-sm-2 col-sm-2 control-label">City</label>
+                      <div class="col-sm-4">
+                          <input id="city" type="text" class="form-control">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="col-sm-2 col-sm-2 control-label">Zip Code</label>
+                      <div class="col-sm-4">
+                          <input id="zipcode" type="text" class="form-control">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="col-sm-2 col-sm-2 control-label">State</label>
+                      <div class="col-sm-2">
+                          <select id="state" class="form-control">
+                          </select>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="col-sm-2 col-sm-2 control-label">Company</label>
+                      <div class="col-sm-4">
+                          <input id="company" type="text" class="form-control">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="col-sm-2 col-sm-2 control-label">Company Phone</label>
+                      <div class="col-sm-4">
+                          <input id="companyPhone" type="text" class="form-control">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="col-sm-2 col-sm-2 control-label">Referral</label>
+                      <div class="col-sm-4">
+                          <input id="referral" type="text" class="form-control">
+                      </div>
+                  </div>
+                </form>
+                <input class="cancel" style='float: left' type='submit' value='Cancel' id='cancel'/>
+                <input class="submit" style='margin-left: 6%' type='submit' value='All Done!' id='submit' onclick="createUser()"/>
+              </div>
+        		</div>
+        	</div>		
+  		  </section><!--/wrapper -->
+      </section><!-- /MAIN CONTENT -->
+    </section>
+
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery-ui-1.9.2.custom.min.js"></script>
+    <script src="assets/js/jquery.ui.touch-punch.min.js"></script>
+
+
+    <!--common script for all pages-->
+    <script src="assets/js/common-scripts.js"></script>
+    <script src="states.js"></script>
+    <script src="assets/js/index.js"></script>
+    <script>
+        for (var state in states) {
+          if (states.hasOwnProperty(state)) {
+            $('#state').append('<option>' + state + '</option>');
+          }
+        }
+    </script>
+
+  </body>
+</html>

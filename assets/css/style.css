@@ -837,8 +837,6 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 .box1 {
 	padding: 15px;
 	text-align: center;
-	color: #989898;
-	border-bottom: 1px solid #989898;
 }
 
 .box1 span {
@@ -850,8 +848,12 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 	text-align: center;
 }
 
-.box0:hover .box1 {
-	border-bottom: 1px solid #ffffff;
+.box0 {
+    background: rgba(230, 230, 230, 0.58);
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+    transition: .15s ease;
+    word-spacing: 1000px;
+    cursor: pointer;
 }
 
 .box0 p {
@@ -2239,4 +2241,31 @@ label {
     min-height: 900px;
 }
 
+.create .submit {
+    width: 47%;
+    border: none;
+    height: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: rgba(144, 238, 144, 0.53);
+    transition: background 0.5s ease;
+}
 
+.create .submit:hover{
+  background: rgba(144, 238, 144, 0.28);
+}
+
+.create .cancel {
+    color: white;
+    width: 47%;
+    border: none;
+    height: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: rgba(239, 148, 105, 0.72);
+    transition: background 0.5s ease;
+}
+
+.create .cancel:hover{
+  background: rgba(239, 148, 105, 0.43);
+}

@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>Airplane Appraisal Admin</title>
+    <title>Chesapeake Appraisals</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -17,10 +18,9 @@
     <link rel="stylesheet" type="text/css" href="assets/js/gritter/css/jquery.gritter.css" />
     <link rel="stylesheet" type="text/css" href="assets/lineicons/style.css">    
     
-    <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/style-responsive.css" rel="stylesheet">
-
+    <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
     <script src="assets/js/chart-master/Chart.js"></script>
     
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -33,10 +33,6 @@
   <body>
 
   <section id="container" >
-      <!-- **********************************************************************************************************************************************************
-      TOP BAR CONTENT & NOTIFICATIONS
-      *********************************************************************************************************************************************************** -->
-      <!--header start-->
       <header class="header black-bg">
               <div class="sidebar-toggle-box">
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
@@ -51,18 +47,12 @@
             	</ul>
             </div>
         </header>
-      <!--header end-->
-      
-      <!-- **********************************************************************************************************************************************************
-      MAIN SIDEBAR MENU
-      *********************************************************************************************************************************************************** -->
-      <!--sidebar start-->
       <aside>
           <div id="sidebar"  class="nav-collapse ">
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
               
-              	  <p class="centered"><a href="profile.html"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+              	  <p class="centered"><a href="profile.html"><img src="assets/img/default.png" class="img-circle" width="60"></a></p>
               	  <h5 class="centered">Meyyappan T</h5>
               	  	
                   <li class="mt">
@@ -83,301 +73,68 @@
                   </li>
 
               </ul>
-              <!-- sidebar menu end-->
           </div>
       </aside>
-      <!--sidebar end-->
-      
-      <!-- **********************************************************************************************************************************************************
-      MAIN CONTENT
-      *********************************************************************************************************************************************************** -->
-      <!--main content start-->
+
       <section id="main-content">
           <section class="wrapper">
 
               <div class="row">
-                  <div class="col-lg-9 main-chart">
+                  <div class="col-lg-12 main-chart">
                   
                   	<div class="row mtbox">
-                  		<div class="col-md-2 col-sm-2 col-md-offset-1 box0">
+                  		<div id="request" class="col-md-2 col-sm-2 col-md-offset-2 box0">
                   			<div class="box1">
-					  			<span class="li_heart"></span>
-					  			<h3>12</h3>
+        					  			<span class="li_stack"></span>
+        					  			<h3>Request Appraisal</h3>
                   			</div>
-					  			<p>12 created accounts today.</p>
                   		</div>
-                  		<div class="col-md-2 col-sm-2 box0">
+                  		<div id="status" class="col-md-2 col-sm-2 col-md-offset-1 box0">
                   			<div class="box1">
-					  			<span class="li_cloud"></span>
-					  			<h3>+48</h3>
+        					  			<span class="li_bulb"></span>
+        					  			<h3>View Status</h3>
                   			</div>
-					  			<p>48 New files were added in your cloud storage.</p>
                   		</div>
-                  		<div class="col-md-2 col-sm-2 box0">
+                  		<div id="view" class="col-md-2 col-sm-2 col-md-offset-1 box0">
                   			<div class="box1">
-					  			<span class="li_stack"></span>
-					  			<h3>+6</h3>
+        					  			<span class="li_paperplane"></span>
+        					  			<h3>View Aircrafts</h3>
                   			</div>
-					  			<p>You have 6 unread appraisal requests in your inbox.</p>
                   		</div>
-                  		<div class="col-md-2 col-sm-2 box0">
-                  			<div class="box1">
-					  			<span class="li_news"></span>
-					  			<h3>+10</h3>
-                  			</div>
-					  			<p>More than 10 news were added in your reader.</p>
-                  		</div>
-                  		<div class="col-md-2 col-sm-2 box0">
-                  			<div class="box1">
-					  			<span class="li_data"></span>
-					  			<h3>OK!</h3>
-                  			</div>
-					  			<p>Your server is working perfectly. Relax & enjoy.</p>
-                  		</div>
-                  	
                   	</div><!-- /row mt -->	
                   
                       
                       <div class="row mt">
                       	
 
-                    </div><!-- /row -->
-                    
-                    				
-					<div class="row mt">
-                  <div class="col-md-12">
-                      <div class="content-panel">
-                          <table class="table table-striped table-advance table-hover">
-                            <h4><i class="fa fa-angle-right"></i> Appraisals</h4>
-                            <hr>
-                              <thead>
-                              <tr>
-                                  <th><i class="fa fa-bullhorn"></i> Name</th>
-                                  <th class="hidden-phone"><i class="fa fa-question-circle"></i> Description</th>
-                                  <th><i class="fa fa-bookmark"></i> Offer</th>
-                                  <th><i class=" fa fa-edit"></i> Status</th>
-                                  <th></th>
-                              </tr>
-                              </thead>
-                              <tbody>
-                              <tr>
-                                  <td><a href="#">James Brown</a></td>
-                                  <td class="hidden-phone">B-52 Bomber</td>
-                                  <td>$12000.00</td>
-                                  <td><span class="label label-warning label-mini">Pending</span></td>
-                                  <td>
-                                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                      <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>
-                                      <a href="#">
-                                          Rahul Kashyap
-                                      </a>
-                                  </td>
-                                  <td class="hidden-phone">Boeing 737</td>
-                                  <td>N/A</td>
-                                  <td><span class="label label-info label-mini">Incomplete</span></td>
-                                  <td>
-                                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                      <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>
-                                      <a href="#">
-                                          Mark Twain
-                                      </a>
-                                  </td>
-                                  <td class="hidden-phone">F-22 Raptor</td>
-                                  <td>$14400.00</td>
-                                  <td><span class="label label-success label-mini">Accepted</span></td>
-                                  <td>
-                                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                      <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>
-                                      <a href="#">
-                                          John Mayer
-                                      </a>
-                                  </td>
-                                  <td class="hidden-phone">Lorem Ipsum dolor</td>
-                                  <td>$22000.50</td>
-                                  <td><span class="label label-success label-mini">Accepted</span></td>
-                                  <td>
-                                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                      <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td><a href="#">Tim Duncan</a></td>
-                                  <td class="hidden-phone">Lorem Ipsum dolor</td>
-                                  <td>$12120.00</td>
-                                  <td><span class="label label-warning label-mini">Pending</span></td>
-                                  <td>
-                                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                      <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                                  </td>
-                              </tr>
-                              </tbody>
-                          </table>
-                      </div><!-- /content-panel -->
-                  </div><!-- /col-md-12 -->
-              </div><!-- /row -->
-					
-			
-					
-                  </div><!-- /col-lg-9 END SECTION MIDDLE -->
-                  
-                  
-      <!-- **********************************************************************************************************************************************************
-      RIGHT SIDEBAR CONTENT
-      *********************************************************************************************************************************************************** -->                  
-                  
-                  <div class="col-lg-3 ds">
-                    <!--COMPLETED ACTIONS DONUTS CHART-->
-						<h3>NOTIFICATIONS</h3>
-                                        
-                      <!-- First Action -->
-                      <div class="desc">
-                      	<div class="thumb">
-                      		<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
-                      	</div>
-                      	<div class="details">
-                      		<p><muted>2 Minutes Ago</muted><br/>
-                      		   <a href="#">James Brown</a> requested an appraisal.<br/>
-                      		</p>
-                      	</div>
-                      </div>
-                      <!-- Second Action -->
-                      <div class="desc">
-                      	<div class="thumb">
-                      		<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
-                      	</div>
-                      	<div class="details">
-                      		<p><muted>3 Hours Ago</muted><br/>
-                      		   <a href="#">Diana Kennedy</a> responded to your message.<br/>
-                      		</p>
-                      	</div>
-                      </div>
-                      <!-- Third Action -->
-                      <div class="desc">
-                      	<div class="thumb">
-                      		<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
-                      	</div>
-                      	<div class="details">
-                      		<p><muted>7 Hours Ago</muted><br/>
-                      		   <a href="#">Brandon Page</a> requested an appraisal<br/>
-                      		</p>
-                      	</div>
-                      </div>
-                      <!-- Fourth Action -->
-                      <div class="desc">
-                      	<div class="thumb">
-                      		<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
-                      	</div>
-                      	<div class="details">
-                      		<p><muted>11 Hours Ago</muted><br/>
-                      		   <a href="#">Mark Twain</a> accepted your offer.<br/>
-                      		</p>
-                      	</div>
-                      </div>
-                       <!-- USERS ONLINE SECTION -->
-
-                        <!-- CALENDAR-->
-                        <div id="calendar" class="mb">
-                            <div class="panel green-panel no-margin">
-                                <div class="panel-body">
-                                    <div id="date-popover" class="popover top" style="cursor: pointer; disadding: block; margin-left: 33%; margin-top: -50px; width: 175px;">
-                                        <div class="arrow"></div>
-                                        <h3 class="popover-title" style="disadding: none;"></h3>
-                                        <div id="date-popover-content" class="popover-content"></div>
-                                    </div>
-                                    <div id="my-calendar"></div>
-                                </div>
-                            </div>
-                        </div><!-- / calendar -->
-                      
+                    </div><!-- /row -->       
                   </div><!-- /col-lg-3 -->
               </div><! --/row -->
           </section>
       </section>
-
-      <!--main content end-->
-      <!--footer start-->
-      <footer class="site-footer">
-          <div class="text-center">
-              2016 - Meyyappan T
-              <a href="index.html#" class="go-top">
-                  <i class="fa fa-angle-up"></i>
-              </a>
-          </div>
-      </footer>
       <!--footer end-->
   </section>
 
-    <!-- js placed at the end of the document so the pages load faster -->
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/jquery-1.8.3.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="assets/js/jquery.scrollTo.min.js"></script>
-    <script src="assets/js/jquery.sparkline.js"></script>
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/js/jquery-1.8.3.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+  <script src="assets/js/jquery.scrollTo.min.js"></script>
+  <script src="assets/js/jquery.sparkline.js"></script>
 
 
-    <!--common script for all pages-->
-    <script src="assets/js/common-scripts.js"></script>
-    
-    <script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
-    <script type="text/javascript" src="assets/js/gritter-conf.js"></script>
-
-    <!--script for this page-->
-    <script src="assets/js/sparkline-chart.js"></script>    
-	<script src="assets/js/zabuto_calendar.js"></script>	
-	
-	<script type="application/javascript">
-        $(document).ready(function () {
-            $("#date-popover").popover({html: true, trigger: "manual"});
-            $("#date-popover").hide();
-            $("#date-popover").click(function (e) {
-                $(this).hide();
-            });
-        
-            $("#my-calendar").zabuto_calendar({
-                action: function () {
-                    return myDateFunction(this.id, false);
-                },
-                action_nav: function () {
-                    return myNavFunction(this.id);
-                },
-                ajax: {
-                    url: "show_data.php?action=1",
-                    modal: true
-                },
-                legend: [
-                    {type: "text", label: "Special event", badge: "00"},
-                    {type: "block", label: "Regular event", }
-                ]
-            });
-        });
-        
-        
-        function myNavFunction(id) {
-            $("#date-popover").hide();
-            var nav = $("#" + id).data("navigation");
-            var to = $("#" + id).data("to");
-            console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
-        }
-    </script>
+  <!--common script for all pages-->
+  <script src="assets/js/common-scripts.js"></script>
   
+  <script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
+  <script type="text/javascript" src="assets/js/gritter-conf.js"></script>
+
+	<script src="assets/js/index.js"></script>
+  <script>
+    $('#request').click(function() {
+      window.location.replace('request.html');
+    });
+  </script>
 
   </body>
 </html>
