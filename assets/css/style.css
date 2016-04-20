@@ -986,7 +986,7 @@ PANELS CONFIGURATIONS
 /*Panel Size*/
 
 .pn {
-	height: 250px;
+	height: 200px;
 	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
 }
 
@@ -1504,26 +1504,27 @@ PANELS CONFIGURATIONS
 }
 #profile-01 h3 {
 	color: white;
-	padding-top: 50px;
+	padding-top: 5px;
+    padding-left: 5px;
 	margin: 0px;
-	text-align: center;
 }
+
 #profile-01 h6 {
 	color: white;
-	text-align: center;
+    padding-left: 5px;
 	margin-bottom: 0px;
 	font-weight: 900;
 }
 .profile-01 {
-	background: #68dff0;
+	background: rgb(90, 212, 139);
 	height: 50px;
 }
 .profile-01:hover {
 	background: #2f2f2f;
-  -webkit-transition: background-color 0.6s;
-  -moz-transition: background-color 0.6s;
-  -o-transition: background-color 0.6s;
-  transition: background-color 0.6s;
+  -webkit-transition: background-color 0.3s;
+  -moz-transition: background-color 0.3s;
+  -o-transition: background-color 0.3s;
+  transition: background-color 0.3s;
   cursor: pointer;
 }
 .profile-01 p {
@@ -2268,4 +2269,9 @@ label {
 
 .create .cancel:hover{
   background: rgba(239, 148, 105, 0.43);
+}
+
+table .approved:hover {
+    cursor: pointer;
+    background-color: rgba(117, 116, 116, 0.1);
 }
