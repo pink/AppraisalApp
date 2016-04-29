@@ -53,7 +53,7 @@
               <ul class="sidebar-menu" id="nav-accordion">
               
               	  <p class="centered"><a href="profile.html"><img src="assets/img/default.png" class="img-circle" width="60"></a></p>
-              	  <h5 class="centered">Meyyappan T</h5>
+              	  <h5 id="currentUser" class="centered"></h5>
               	  	
                   <li class="mt">
                       <a class="active" href="index.html">
@@ -131,6 +131,7 @@
 
 	<script src="assets/js/index.js"></script>
   <script>
+    $('#currentUser').text(localStorage.user);
     $('#request').click(function() {
       window.location.replace('request.html');
     });

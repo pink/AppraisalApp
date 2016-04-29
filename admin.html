@@ -8,7 +8,7 @@
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>Request Appraisal</title>
+    <title>Airplane Appraisal Admin</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -18,7 +18,7 @@
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/style-responsive.css" rel="stylesheet">
-
+    <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -29,14 +29,11 @@
   <body>
 
   <section id="container" >
-      <!-- **********************************************************************************************************************************************************
-      TOP BAR CONTENT & NOTIFICATIONS
-      *********************************************************************************************************************************************************** -->
       <!--header start-->
       <header class="header black-bg">
-              <div class="sidebar-toggle-box">
-                  <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
-              </div>
+            <div class="sidebar-toggle-box">
+                <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+            </div>
             <!--logo start-->
             <a href="index.html" class="logo"><b>Airplane Appraisal</b></a>
             <!--logo end-->
@@ -45,7 +42,7 @@
                     <li><a class="logout" href="login.html">Logout</a></li>
             	</ul>
             </div>
-        </header>
+      </header>
       <!--header end-->
       
       <!-- **********************************************************************************************************************************************************
@@ -67,12 +64,12 @@
                       </a>
                   </li>
                   <li class="sub-menu">
-                      <a>
+                      <a class="active" href="javascript:;" >
                           <i class="fa fa-desktop"></i>
                           <span>Account</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="blank.html">Edit Account</a></li>
+                          <li class="active"><a  href="blank.html">Edit Account</a></li>
                           <li><a  href="login.html">Login</a></li>
                       </ul>
                   </li>
@@ -89,81 +86,29 @@
       <!--main content start-->
       <section id="main-content">
         <section class="wrapper">
-          <h3>View Airplanes</h3>
-          <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-4 mb">
-              <div class="content-panel pn">
-                <div id="profile-01" style="background-image: url(http://widebodyaircraft.nl/b787dream.jpg);">
-                  <h3>Boeing 787</h3>
-                  <h6>1994</h6>
-                </div>
-                <div class="profile-01 centered">
-                  <p>$3,154,900</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 mb">
-              <div class="content-panel pn">
-                <div id="profile-01" style="background-image: url(http://www.warrenctyairport.com/media/images/content/mooney.jpg);">
-                  <h3>Boeing 797</h3>
-                  <h6>1996</h6>
-                </div>
-                <div class="profile-01 centered">
-                  <p>$2,154,890</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 mb">
-              <div class="content-panel pn">
-                <div id="profile-01" style="background-image: url(http://blogs-images.forbes.com/mfonobongnsehe/files/2012/09/Private-Jet-Plane.jpg);">
-                  <h3>Boeing 737</h3>
-                  <h6>1992</h6>
-                </div>
-                <div class="profile-01 centered">
-                  <p>$4,152,102</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-4 mb">
-              <div class="content-panel pn">
-                <div id="profile-01" style="background-image: url(http://www.tuvie.com/wp-content/uploads/icon-a5-sport-aircraft1.jpg);">
-                  <h3>Boeing 747</h3>
-                  <h6>1999</h6>
-                </div>
-                <div class="profile-01 centered">
-                  <p>$1,114,810</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 mb">
-              <div class="content-panel pn">
-                <div id="profile-01" style="background-image: url(http://www.tuvie.com/wp-content/uploads/personal-jet-eclipse400-from-eclipse-aviation6.jpg);">
-                  <h3>Boeing 757</h3>
-                  <h6>1994</h6>
-                </div>
-                <div class="profile-01 centered">
-                  <p>$5,252,960</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 mb">
-              <div class="content-panel pn">
-                <div id="profile-01" style="background-image: url(http://b-i.forbesimg.com/businessaviation/files/2013/07/Meridian-2.jpg);">
-                  <h3>Boeing 767</h3>
-                  <h6>2001</h6>
-                </div>
-                <div class="profile-01 centered">
-                  <p>$3,554,452</p>
-                </div>
-              </div>
-            </div>
-          </div>
+        	<div class="row mt">
+            <div class="col-md-12">
+              <div class="content-panel">
+                <table class="table table-advance table-hover">
+                  <thead>
+                    <tr>
+                        <th>Make</th>
+                        <th>Model</th>
+                        <th>Mileage</th>
+                        <th>Registration #</th>
+                        <th>Seller</th>
+                        <th></th>
+                    </tr>
+                  </thead>
+                  <tbody id="tableBody">
 
-	      </section>
+                  </tbody>
+                </table>
+              </div><!-- /content-panel -->
+            </div><!-- /col-md-12 -->
+          </div><!-- /row -->
+		    </section>
       </section><!-- /MAIN CONTENT -->
-
       <!--main content end-->
   </section>
 
@@ -174,17 +119,18 @@
     <script src="assets/js/jquery.ui.touch-punch.min.js"></script>
     <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
     <script src="assets/js/jquery.scrollTo.min.js"></script>
+    <script src="assets/js/index.js"></script>
 
 
     <!--common script for all pages-->
     <script src="assets/js/common-scripts.js"></script>
 
     <!--script for this page-->
-    <script>
-      $('#currentUser').text(localStorage.user);
-      $('.approved').click(function() {
-        window.location.replace('appraisal.html');
-      });
-    </script>
+    
+  <script>
+    $('#currentUser').text(localStorage.user);
+    populateTable();
+  </script>
+
   </body>
 </html>

@@ -18,7 +18,7 @@
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/style-responsive.css" rel="stylesheet">
-
+    <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -58,7 +58,7 @@
               <ul class="sidebar-menu" id="nav-accordion">
               
               	  <p class="centered"><a href="profile.html"><img src="assets/img/default.png" class="img-circle" width="60"></a></p>
-              	  <h5 class="centered">Meyyappan T</h5>
+              	  <h5 id="currentUser" class="centered"></h5>
               	  	
                   <li class="mt">
                       <a href="index.html">
@@ -97,31 +97,31 @@
                   <div class="form-group">
                       <label class="col-sm-2 col-sm-2 control-label">Make</label>
                       <div class="col-sm-4">
-                          <input id="referral" type="text" class="form-control">
+                          <input id="make" type="text" class="form-control">
                       </div>
                   </div>
                   <div class="form-group">
                       <label class="col-sm-2 col-sm-2 control-label">Model</label>
                       <div class="col-sm-4">
-                          <input id="referral" type="text" class="form-control">
+                          <input id="model" type="text" class="form-control">
                       </div>
                   </div>
                   <div class="form-group">
                       <label class="col-sm-2 col-sm-2 control-label">Mileage</label>
                       <div class="col-sm-4">
-                          <input id="referral" type="text" class="form-control">
+                          <input id="mileage" type="text" class="form-control">
                       </div>
                   </div>
                   <div class="form-group">
                       <label class="col-sm-2 col-sm-2 control-label">Registration Number</label>
                       <div class="col-sm-4">
-                          <input id="referral" type="text" class="form-control">
+                          <input id="regNum" type="text" class="form-control">
                       </div>
                   </div>
                   <div class="form-group">
                       <label class="col-sm-2 col-sm-2 control-label">Year</label>
                       <div class="col-sm-4">
-                          <input id="referral" type="text" class="form-control">
+                          <input id="year" type="text" class="form-control">
                       </div>
                   </div>
                   <div class="form-group">
@@ -189,7 +189,7 @@
                   <div class="form-group">
                       <label class="col-sm-2 col-sm-2 control-label">Upload Image</label>
                       <div class="col-sm-2">
-                          <input type="file" name="pic" accept="image/*" onchange="previewFile()">
+                          <input id="image" type="file" name="pic" accept="image/*" onchange="previewFile()">
                       </div>
                   </div>
                   <div class="form-group">
@@ -199,7 +199,7 @@
                   </div>
                 </form>
                 <input class="cancel" style='float: left' type='submit' value='Cancel' id='cancel'/>
-                <input class="submit" style='margin-left: 6%' type='submit' value='All Done!' id='submit' onclick="createUser()"/>
+                <input class="submit" style='margin-left: 6%' type='submit' value='All Done!' id='submit' onclick="submitRequest()"/>
               </div>
             </div>
           </div>    
@@ -216,7 +216,7 @@
     <script src="assets/js/jquery.ui.touch-punch.min.js"></script>
     <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
     <script src="assets/js/jquery.scrollTo.min.js"></script>
-
+    <script src="assets/js/index.js"></script>
 
     <!--common script for all pages-->
     <script src="assets/js/common-scripts.js"></script>
@@ -224,6 +224,7 @@
     <!--script for this page-->
     
   <script>
+    
     function previewFile(){
        var preview = $('#previewImage')[0]; //selects the query named img
        var file    = document.querySelector('input[type=file]').files[0]; //sames as here

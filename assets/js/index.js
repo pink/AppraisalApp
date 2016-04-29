@@ -55,6 +55,7 @@ function validateUser(email, password) {
 			var user = childSnapshot.val();
 	    	if (user.email === email) {
 	    		if (user.password === password) {
+	    			localStorage.setItem("user", user.firstName + ' ' + user.lastName);
 	    			window.location.replace('index.html');
 	    			return true;
 	    		}
@@ -63,7 +64,8 @@ function validateUser(email, password) {
 	    			return true;
 	    		}
 	    	}
-	  	})) {
+	  	})) 
+	  	{
 	  		$(errorAlert('Email not found, create an account!')).insertBefore('#email');
 		}
 	});  
@@ -73,4 +75,83 @@ function errorAlert(text) {
 	return "<div class='alert alert-danger alert-dismissable'>" + 
 	"<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>" + 
 	"<strong>Error!</strong> " + text + "</div>"
+}
+
+function submitRequest() {
+	var airplaneRef = new Firebase('https://chesapeake-airplane.firebaseio.com/airplanes');
+	var make = $('#make').val();
+	var model = $('#model').val();
+	var mileage = $('#mileage').val();
+	var regNum = $('#regNum').val();
+	var year = $('#year').val();
+	var condition = $('#condition').val();
+	var owners = $('#owners').val();
+	var buyer = $('#buyer').val();
+	var use = $('#use').val();
+	var company = $('#company').val();
+	var companyPhone = $('#companyPhone').val();
+	var referral = $('#referral').val();
+
+	if ([make, model, mileage, regNum, year, condition, owners, buyer, use, company, companyPhone].indexOf('') !== -1) {
+		alert('You left an important field blank!');
+	}
+	else {
+		airplaneRef.child(regNum).set({
+			'make': make,
+			'model': model,
+			'mileage': mileage,
+			'regNum': regNum,
+			'year': year,
+			'condition': condition,
+			'owners': owners,
+			'buyer': buyer,
+			'use': use,
+			'company': company,
+			'companyPhone': companyPhone,
+			'referral': referral,
+			'appraised': 'No',
+			'offer': '',
+			'date': '',
+			'comments': '',
+			'seller': localStorage.user
+		}, function(error) {
+			if (error) {
+				alert('Error submitting request, contact admin.');
+			}
+			else {
+				alert('Success!');
+			}
+		});
+	}
+	airplaneRef.off();
+}
+
+function populateTable() {
+	var airplaneRef = new Firebase('https://chesapeake-airplane.firebaseio.com/airplanes');
+
+	airplaneRef.once('value', function(snapshot) {
+		snapshot.forEach(function(childSnapshot) {
+			var plane = childSnapshot.val();
+			var make = plane.make;
+			var model = plane.model;
+			var mileage = plane.mileage;
+			var regNum = plane.regNum;
+			var seller = plane.seller;
+			var appraised = plane.appraised;
+			var template = "<td>" + make + "</td>" +
+						   "<td>" + model + "</td>" +
+						   "<td>" + mileage + "</td>" +
+						   "<td>" + regNum + "</td>" +
+						   "<td>" + seller + "</td>";
+			if (appraised === 'Yes') {
+				template += '<td><span class="label label-success label-mini">Done</span></td>';
+			} else {
+				template += '<td><span class="label label-danger label-mini">Incomplete</span></td>';
+			}
+			
+			var row = document.createElement('tr');
+			row.innerHTML = template;
+			$('#tableBody').append(row);
+	  	});
+	}); 
 }
