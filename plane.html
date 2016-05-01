@@ -8,17 +8,17 @@
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>Request Appraisal</title>
+    <title>View Request - Chesapeake Airplanes</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
     <!--external css-->
     <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-        
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/style-responsive.css" rel="stylesheet">
-
+    <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -28,24 +28,24 @@
 
   <body>
 
-  <section id="container" >
+  <section id="container">
       <!-- **********************************************************************************************************************************************************
       TOP BAR CONTENT & NOTIFICATIONS
       *********************************************************************************************************************************************************** -->
       <!--header start-->
       <header class="header black-bg">
-              <div class="sidebar-toggle-box">
-                  <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
-              </div>
-            <!--logo start-->
-            <a href="index.html" class="logo"><b>Airplane Appraisal</b></a>
-            <!--logo end-->
-            <div class="top-menu">
-            	<ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login.html">Logout</a></li>
-            	</ul>
-            </div>
-        </header>
+        <div class="sidebar-toggle-box">
+            <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+        </div>
+        <!--logo start-->
+        <a href="index.html" class="logo"><b>Airplane Appraisal</b></a>
+        <!--logo end-->
+        <div class="top-menu">
+        	<ul class="nav pull-right top-menu">
+                <li><a class="logout" onclick="logout()" href="">Logout</a></li>
+        	</ul>
+        </div>
+      </header>
       <!--header end-->
       
       <!-- **********************************************************************************************************************************************************
@@ -53,33 +53,22 @@
       *********************************************************************************************************************************************************** -->
       <!--sidebar start-->
       <aside>
-          <div id="sidebar"  class="nav-collapse ">
-              <!-- sidebar menu start-->
-              <ul class="sidebar-menu" id="nav-accordion">
-              
-              	  <p class="centered"><a href="profile.html"><img src="assets/img/default.png" class="img-circle" width="60"></a></p>
-              	  <h5 id="currentUser" class="centered"></h5>
-              	  	
-                  <li class="mt">
-                      <a href="index.html">
-                          <i class="fa fa-dashboard"></i>
-                          <span>Dashboard</span>
-                      </a>
-                  </li>
-                  <li class="sub-menu">
-                      <a>
-                          <i class="fa fa-desktop"></i>
-                          <span>Account</span>
-                      </a>
-                      <ul class="sub">
-                          <li><a  href="blank.html">Edit Account</a></li>
-                          <li><a  href="login.html">Login</a></li>
-                      </ul>
-                  </li>
-
-              </ul>
-              <!-- sidebar menu end-->
-          </div>
+        <div id="sidebar"  class="nav-collapse ">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu" id="nav-accordion">
+            
+            	  <p class="centered"><a href=""><img src="assets/img/default.png" class="img-circle" width="60"></a></p>
+            	  <h5 id="currentUser" class="centered"></h5>
+            	  	
+                <li class="mt">
+                    <a href="admin.html">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Admin Panel</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- sidebar menu end-->
+        </div>
       </aside>
       <!--sidebar end-->
       
@@ -92,50 +81,60 @@
           <h3>View Application</h3>
           <div class="row">
             <div class="col-md-10 col-md-offset-1">
-              <div class="showback"> 
+              <div class="create showback"> 
                 <div class="row">
                   <div class="col-sm-4">
-                    <img style="width: 100%" src="http://widebodyaircraft.nl/b787dream.jpg"/>
+                    <img id="planeImage" style="width: 100%" src=""/>
                   </div>
                   <div class="col-sm-7">
-                    <h4><b>Sean Kallungal</b></h4>
-                    <h5><b>Company:</b> Google</h5>
-                    <h5><b>Phone:</b> 240-481-7644</h5>
-                    <h5>9717 Greenel Rd.</h5>
-                    <h5>MD, 20872</h5>
+                    <h4 id="name"></h4>
+                    <h5 id="company"></h5>
+                    <h5 id="phone"></h5>
+                    <h5 id="address"></h5>
+                    <h5 id="state"></h5>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-sm-6">
-                    <h5><b>Make:</b> Boeing</h5>
-                    <h5><b>Model:</b> 747</h5>
-                    <h5><b>Year:</b> 2006</h5>
-                    <h5><b>Mileage:</b> 200,000</h5>
-                    <h5><b>Regulation #:</b> A63ZH7</h5>
-                    <h5><b>Condition:</b> Very Good</h5>
-                    <h5><b>Intended Use:</b> Flying</h5>
-                    <h5><b># of Owners:</b> 1</h5>
-                    <h5><b>Found a Buyer:</b> No</h5>
-                    <h5><b>Refferal:</b> Rahul Kashyap</h5>
+                    <h5 id="make"></h5>
+                    <h5 id="model"></h5>
+                    <h5 id="year"></h5>
+                    <h5 id="mileage"></h5>
+                    <h5 id="regNum"></h5>
+                    <h5 id="condition"></h5>
+                    <h5 id="use"></h5>
+                    <h5 id="owners"></h5>
+                    <h5 id="buyer"></h5>
+                    <h5 id="referral"></h5>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-sm-12">
                     <form class="form-horizontal tasi-form mt" method="get">
                       <div class="form-group">
-                          <label class="col-sm-1 control-label"><b>Appraisal:</b></label>
+                          <label class="col-sm-2 control-label"><b>Appraisal:</b></label>
                           <div class="col-sm-2">
-                              <input id="make" type="text" class="form-control">
+                              <input id="appraisal" type="text" class="form-control">
                           </div>
                       </div>
                       <label style="width: 100%;"><b>Comments</b></label>
                       <textarea style="resize: none;" rows="4" cols="50"></textarea>
+                      <div style="margin-top: 10px;" class="form-group">
+                          <label class="col-sm-2 control-label"><b>Appointment:</b></label>
+                          <div class="col-sm-2">
+                              <input id="date" type="text" class="form-control">
+                          </div>
+                      </div>
                     </form>
                   </div>
                 </div>
+                <input class="cancel" style='float: left' type='submit' value='Cancel' id='cancel'/>
+                <input class="submit" style='margin-left: 6%' type='submit' value='All Done!' id='submit' onclick="submitAppraisal()"/>
               </div>
             </div>
+
           </div>
+
 	      </section>
       </section><!-- /MAIN CONTENT -->
 
@@ -149,17 +148,16 @@
     <script src="assets/js/jquery.ui.touch-punch.min.js"></script>
     <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
     <script src="assets/js/jquery.scrollTo.min.js"></script>
-
+    <script src="assets/js/index.js"></script>
 
     <!--common script for all pages-->
     <script src="assets/js/common-scripts.js"></script>
 
     <!--script for this page-->
     <script>
-      $('#currentUser').text(localStorage.user);
-      $('.approved').click(function() {
-        window.location.replace('appraisal.html');
-      });
+      $( "#date" ).datepicker();
+      $('#currentUser').text(sessionStorage.user);
+      populatePlane();
     </script>
   </body>
 </html>

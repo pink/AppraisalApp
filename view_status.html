@@ -8,7 +8,7 @@
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>Request Appraisal</title>
+    <title>Status - Chesapeake Airplanes</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -18,7 +18,7 @@
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/style-responsive.css" rel="stylesheet">
-
+    <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -42,7 +42,7 @@
             <!--logo end-->
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login.html">Logout</a></li>
+                    <li><a class="logout" onclick="logout()" href="">Logout</a></li>
             	</ul>
             </div>
         </header>
@@ -57,7 +57,7 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
               
-              	  <p class="centered"><a href="profile.html"><img src="assets/img/default.png" class="img-circle" width="60"></a></p>
+              	  <p class="centered"><a href=""><img src="assets/img/default.png" class="img-circle" width="60"></a></p>
               	  <h5 id="currentUser" class="centered"></h5>
               	  	
                   <li class="mt">
@@ -66,17 +66,6 @@
                           <span>Dashboard</span>
                       </a>
                   </li>
-                  <li class="sub-menu">
-                      <a>
-                          <i class="fa fa-desktop"></i>
-                          <span>Account</span>
-                      </a>
-                      <ul class="sub">
-                          <li><a  href="blank.html">Edit Account</a></li>
-                          <li><a  href="login.html">Login</a></li>
-                      </ul>
-                  </li>
-
               </ul>
               <!-- sidebar menu end-->
           </div>
@@ -90,96 +79,6 @@
       <section id="main-content">
         <section class="wrapper">
           <h3>View Status</h3>
-          <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-              <div class="showback"> 
-                <div class="row">
-                  <div class="col-sm-4">
-                    <img style="width: 100%" src="http://widebodyaircraft.nl/b787dream.jpg"/>
-                  </div>
-                  <div class="col-sm-7">
-                    <h4>No. 136</h4>
-                    <h4><b>Status:</b> Appraised!</h4>
-                    <h5><b>Estimated Value:</b> $3,512,000</h5>
-                    <h5><b>Meeting Date:</b> 08/09/16</h5>
-                    <h5><b>Comments:</b> This plane looks phenomenal, let me know if this date works for you.</h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-              <div class="showback"> 
-                <div class="row">
-                  <div class="col-sm-4">
-                    <img style="width: 100%" src="http://www.warrenctyairport.com/media/images/content/mooney.jpg"/>
-                  </div>
-                  <div class="col-sm-7">
-                    <h4>No. 137</h4>
-                    <h4><b>Status:</b> Pending</h4>
-                    <h5><b>Estimated Value:</b> N/A</h5>
-                    <h5><b>Meeting Date:</b> N/A</h5>
-                    <h5><b>Comments:</b> N/A</h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-              <div class="showback"> 
-                <div class="row">
-                  <div class="col-sm-4">
-                    <img style="width: 100%" src="http://blogs-images.forbes.com/mfonobongnsehe/files/2012/09/Private-Jet-Plane.jpg"/>
-                  </div>
-                  <div class="col-sm-7">
-                    <h4>No. 138</h4>
-                    <h4><b>Status:</b> Pending</h4>
-                    <h5><b>Estimated Value:</b> N/A</h5>
-                    <h5><b>Meeting Date:</b> N/A</h5>
-                    <h5><b>Comments:</b> N/A</h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-              <div class="showback"> 
-                <div class="row">
-                  <div class="col-sm-4">
-                    <img style="width: 100%" src="http://www.tuvie.com/wp-content/uploads/icon-a5-sport-aircraft1.jpg"/>
-                  </div>
-                  <div class="col-sm-7">
-                    <h4>No. 139</h4>
-                    <h4><b>Status:</b> Appraised!</h4>
-                    <h5><b>Estimated Value:</b> $112,000</h5>
-                    <h5><b>Meeting Date:</b> 07/08/16</h5>
-                    <h5><b>Comments:</b> From what you have told me, your plane looks great. Let's get together so we can go over the details.</h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-              <div class="showback"> 
-                <div class="row">
-                  <div class="col-sm-4">
-                    <img style="width: 100%" src="http://www.tuvie.com/wp-content/uploads/personal-jet-eclipse400-from-eclipse-aviation6.jpg"/>
-                  </div>
-                  <div class="col-sm-7">
-                    <h4>No. 140</h4>
-                    <h4><b>Status:</b> Pending</h4>
-                    <h5><b>Estimated Value:</b> N/A</h5>
-                    <h5><b>Meeting Date:</b> N/A</h5>
-                    <h5><b>Comments:</b> N/A</h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
 	      </section>
       </section><!-- /MAIN CONTENT -->
 
@@ -193,14 +92,15 @@
     <script src="assets/js/jquery.ui.touch-punch.min.js"></script>
     <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
     <script src="assets/js/jquery.scrollTo.min.js"></script>
-
+    <script src="assets/js/index.js"></script>
 
     <!--common script for all pages-->
     <script src="assets/js/common-scripts.js"></script>
 
     <!--script for this page-->
     <script>
-      $('#currentUser').text(localStorage.user);
+      populateStatus();
+      $('#currentUser').text(sessionStorage.user);
       $('.approved').click(function() {
         window.location.replace('appraisal.html');
       });

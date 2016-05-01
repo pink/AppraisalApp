@@ -8,7 +8,7 @@
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>Request Appraisal</title>
+    <title>Request - Chesapeake Airplanes</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -42,7 +42,7 @@
             <!--logo end-->
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login.html">Logout</a></li>
+                    <li><a class="logout" onclick="logout()" href="">Logout</a></li>
             	</ul>
             </div>
         </header>
@@ -57,7 +57,7 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
               
-              	  <p class="centered"><a href="profile.html"><img src="assets/img/default.png" class="img-circle" width="60"></a></p>
+              	  <p class="centered"><a href=""><img src="assets/img/default.png" class="img-circle" width="60"></a></p>
               	  <h5 id="currentUser" class="centered"></h5>
               	  	
                   <li class="mt">
@@ -66,17 +66,6 @@
                           <span>Dashboard</span>
                       </a>
                   </li>
-                  <li class="sub-menu">
-                      <a>
-                          <i class="fa fa-desktop"></i>
-                          <span>Account</span>
-                      </a>
-                      <ul class="sub">
-                          <li><a  href="blank.html">Edit Account</a></li>
-                          <li><a  href="login.html">Login</a></li>
-                      </ul>
-                  </li>
-
               </ul>
               <!-- sidebar menu end-->
           </div>
@@ -199,7 +188,7 @@
                   </div>
                 </form>
                 <input class="cancel" style='float: left' type='submit' value='Cancel' id='cancel'/>
-                <input class="submit" style='margin-left: 6%' type='submit' value='All Done!' id='submit' onclick="submitRequest()"/>
+                <input class="submit" style='margin-left: 6%' type='submit' value='All Done!' id='submit' onclick="upload()"/>
               </div>
             </div>
           </div>    
@@ -224,7 +213,7 @@
     <!--script for this page-->
     
   <script>
-    
+    $('#currentUser').text(sessionStorage.user);
     function previewFile(){
        var preview = $('#previewImage')[0]; //selects the query named img
        var file    = document.querySelector('input[type=file]').files[0]; //sames as here

@@ -8,8 +8,10 @@
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>Chesapeake Appraisals</title>
+    <title>Dashboard - Chesapeake Appraisals</title>
 
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/index.js"></script>
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
     <!--external css-->
@@ -30,9 +32,9 @@
     <![endif]-->
   </head>
 
-  <body>
+  <body onload="checkLogin()">
 
-  <section id="container" >
+  <section id="container" style="visibility: hidden;">
       <header class="header black-bg">
               <div class="sidebar-toggle-box">
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
@@ -43,7 +45,7 @@
 
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login.html">Logout</a></li>
+                    <li><a class="logout" onclick='logout()' href=''>Logout</a></li>
             	</ul>
             </div>
         </header>
@@ -52,7 +54,7 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
               
-              	  <p class="centered"><a href="profile.html"><img src="assets/img/default.png" class="img-circle" width="60"></a></p>
+              	  <p class="centered"><a href=""><img src="assets/img/default.png" class="img-circle" width="60"></a></p>
               	  <h5 id="currentUser" class="centered"></h5>
               	  	
                   <li class="mt">
@@ -61,17 +63,6 @@
                           <span>Dashboard</span>
                       </a>
                   </li>
-                  <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class="fa fa-desktop"></i>
-                          <span>Account</span>
-                      </a>
-                      <ul class="sub">
-                          <li><a  href="blank.html">Edit Info</a></li>
-                          <li><a  href="login.html">Login</a></li>
-                      </ul>
-                  </li>
-
               </ul>
           </div>
       </aside>
@@ -115,7 +106,6 @@
       <!--footer end-->
   </section>
 
-  <script src="assets/js/jquery.js"></script>
   <script src="assets/js/jquery-1.8.3.min.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
   <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
@@ -129,9 +119,9 @@
   <script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
   <script type="text/javascript" src="assets/js/gritter-conf.js"></script>
 
-	<script src="assets/js/index.js"></script>
+	
   <script>
-    $('#currentUser').text(localStorage.user);
+    $('#currentUser').text(sessionStorage.user);
     $('#request').click(function() {
       window.location.replace('request.html');
     });
