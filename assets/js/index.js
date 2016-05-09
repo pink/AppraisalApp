@@ -265,7 +265,7 @@ function populateStatus() {
 					var template = '<div class="row"><div class="col-md-10 col-md-offset-1"><div class="showback"><div class="row">' + 
 						'<div class="col-sm-4"><img style="width: 100%" src="' + plane.image + '"/></div>' +
 	                    '<div class="col-sm-7"><h4>' + plane.regNum + '</h4><h4><b>Status:</b> ' + appraised + '</h4>' +
-	                    '<h5><b>Estimated Value:</b> ' + plane.offer + '</h5><h5><b>Meeting Date:</b> ' + plane.date + '</h5>' +
+	                    '<h5><b>Estimated Value:</b> ' + plane.offer + ' USD</h5><h5><b>Meeting Date:</b> ' + plane.date + '</h5>' +
 	                    '<h5><b>Comments:</b> ' + plane.comments + '</h5>' +
 	                  	'</div></div></div></div></div>';
 	             }

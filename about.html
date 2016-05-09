@@ -8,7 +8,7 @@
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>Status - Chesapeake Airplanes</title>
+    <title>Contact - Airplane Appraisal</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -18,7 +18,7 @@
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/style-responsive.css" rel="stylesheet">
-    <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -41,9 +41,9 @@
             <a href="index.html" class="logo"><b>Airplane Appraisal</b></a>
             <!--logo end-->
             <div class="top-menu">
-            	<ul class="nav pull-right top-menu">
-                    <li><a class="logout" onclick="logout()" href="">Logout</a></li>
-            	</ul>
+              <ul class="nav pull-right top-menu">
+                    <li><a class="logout" href="login.html">Logout</a></li>
+              </ul>
             </div>
         </header>
       <!--header end-->
@@ -57,9 +57,9 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
               
-              	  <p class="centered"><a href=""><img src="assets/img/default.png" class="img-circle" width="60"></a></p>
-              	  <h5 id="currentUser" class="centered"></h5>
-              	  	
+                  <p class="centered"><a href="profile.html"><img src="assets/img/default.png" class="img-circle" width="60"></a></p>
+                  <h5 class="centered">Meyyappan T</h5>
+                    
                   <li class="mt">
                       <a href="index.html">
                           <i class="fa fa-dashboard"></i>
@@ -83,9 +83,16 @@
       *********************************************************************************************************************************************************** -->
       <!--main content start-->
       <section id="main-content">
-        <section class="wrapper">
-          <h3>View Status</h3>
-	      </section>
+          <section class="wrapper site-min-height">
+            <h1>Contact</h1>
+            <div class="row mt">
+              <div class="col-lg-12">
+                <h4><b>Email: </b> otto@chesapeakeappraisals.com</h4>
+                <h4><b>Phone #: </b> 443-945-7382</h4>
+              </div>
+            </div>
+      
+    </section><! --/wrapper -->
       </section><!-- /MAIN CONTENT -->
 
       <!--main content end-->
@@ -98,18 +105,18 @@
     <script src="assets/js/jquery.ui.touch-punch.min.js"></script>
     <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
     <script src="assets/js/jquery.scrollTo.min.js"></script>
-    <script src="assets/js/index.js"></script>
+
+
 
     <!--common script for all pages-->
     <script src="assets/js/common-scripts.js"></script>
 
     <!--script for this page-->
-    <script>
-      populateStatus();
-      $('#currentUser').text(sessionStorage.user);
-      $('.approved').click(function() {
-        window.location.replace('appraisal.html');
-      });
-    </script>
+    
+  <script>
+      
+
+  </script>
+
   </body>
 </html>
